@@ -1,4 +1,6 @@
 import org.apache.commons.io.IOUtils;
+import org.junit.Assert;
+
 import java.io.IOException;
 
 public class Main {
@@ -13,5 +15,22 @@ public class Main {
         String output = (new Main()).readRawDataToString();
         System.out.println(output);
 
+
+    }
+
+    public String formatStringData (String x){
+        String result = x
+                .replaceAll(":", " : ")
+                .replaceAll("[;@^*%!]", "\n==========\n");
+       return result;
+    }
+
+    public String separatePairs(String x) {
+        String result = x
+                .replaceAll(":", " : ")
+                .replaceAll("[;@^*%!]", "\n==========\n")
+                .replaceAll("##", "\n-----------\n\n\n");
+        String realResult = String.format("%S", result);
+        return realResult;
     }
 }
