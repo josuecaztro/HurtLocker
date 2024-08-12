@@ -2,6 +2,8 @@ import org.apache.commons.io.IOUtils;
 import org.junit.Assert;
 
 import java.io.IOException;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Main {
 
@@ -15,6 +17,9 @@ public class Main {
         String output = (new Main()).readRawDataToString();
         System.out.println(output);
 
+        String patternString = output;
+        Pattern pattern = Pattern.compile(patternString);
+        Matcher matcher = pattern.matcher("\\w+");
 
     }
 
