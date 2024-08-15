@@ -30,39 +30,25 @@ public class Main {
         Map<Double, Integer> milkMap = main.createMilkPriceMap(fullText);//3.23 and 1.23
         Map<Double, Integer> breadMap = main.createBreadPriceMap(fullText);//1.23
 
+        // STRING BUILDER
         StringBuilder sb = new StringBuilder();
-        //APPLES
-        sb.append(String.format("\nName: Apples%-"+18+"s Seen: %d times","",main.findApplesSeen(fullText)));
-        sb.append(String.format("\n=============== %-"+11+"s ================", ""));
-        sb.append(String.format("\nPrice: 0.25%-"+19+"s Seen: %d times","",appleMap.get(0.25)));
-        sb.append(String.format("\n---------------- %-"+10+"s ----------------", ""));
-        sb.append(String.format("\nPrice: 0.23%-"+19+"s Seen: %d times","",appleMap.get(0.23)));
-        sb.append("\n\n");
-        //COOKIES
-        sb.append(String.format("\nName: Cookies%-"+17+"s Seen: %d times","",main.findCookiesSeen(fullText)));
-        sb.append(String.format("\n=============== %-"+11+"s ================", ""));
-        sb.append(String.format("\nPrice: 2.25%-"+19+"s Seen: %d times","",cookieMap.get(2.25)));
-        sb.append(String.format("\n---------------- %-"+10+"s ----------------", ""));
-        sb.append("\n\n");
-        //MILK
-        sb.append(String.format("\nName: Milk%-"+20+"s Seen: %d times","",main.findMilkSeen(fullText)));
-        sb.append(String.format("\n=============== %-"+11+"s ================", ""));
-        sb.append(String.format("\nPrice: 0.25%-"+19+"s Seen: %d times","",milkMap.get(3.23)));
-        sb.append(String.format("\n---------------- %-"+10+"s ----------------", ""));
-        sb.append(String.format("\nPrice: 0.23%-"+19+"s Seen: %d times","",milkMap.get(1.23)));
-        sb.append("\n\n");
-        //BREAD
-        sb.append(String.format("\nName: Bread%-"+19+"s Seen: %d times","",main.findBreadSeen(fullText)));
-        sb.append(String.format("\n=============== %-"+11+"s ================", ""));
-        sb.append(String.format("\nPrice: 0.25%-"+19+"s Seen: %d times","",breadMap.get(1.23)));
-        sb.append(String.format("\n---------------- %-"+10+"s ----------------", ""));
-        sb.append("\n");
-        //ERRORS
-        sb.append(String.format("\nErrors:%-"+23+"s Seen: %d times","",4));
+        addCategory(sb, "Apples", main.findApplesSeen(fullText), appleMap, new double[]{0.25, 0.23});
+        addCategory(sb, "Cookies", main.findCookiesSeen(fullText), cookieMap, new double[]{2.25});
+        addCategory(sb, "Milk", main.findMilkSeen(fullText), milkMap, new double[]{3.23, 1.23});
+        addCategory(sb, "Bread", main.findBreadSeen(fullText), breadMap, new double[]{1.23});
+        sb.append(String.format("\nErrors:%-"+23+"s Seen: %d times", "", 4));
         System.out.println(sb);
 
+    }
 
-
+    private static void addCategory(StringBuilder sb, String name, int seenCount, Map<Double, Integer> priceMap, double[] prices) {
+        sb.append(String.format("\nName: %s%-"+18+"s Seen: %d times", name, "", seenCount));
+        sb.append(String.format("\n=============== %-"+11+"s ================", ""));
+        for (double price : prices) {
+            sb.append(String.format("\nPrice: %.2f%-"+19+"s Seen: %d times", price, "", priceMap.getOrDefault(price, 0)));
+            sb.append(String.format("\n---------------- %-"+10+"s ----------------", ""));
+        }
+        sb.append("\n\n");
     }
 
     public int findBreadSeen(String text) {
