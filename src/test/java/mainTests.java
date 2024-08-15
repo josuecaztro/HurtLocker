@@ -52,14 +52,14 @@ public class mainTests {
         //MILK
         sb.append(String.format("\nName: Milk%-"+20+"s Seen: %d times","",main.findMilkSeen(fullText)));
         sb.append(String.format("\n=============== %-"+11+"s ================", ""));
-        sb.append(String.format("\nPrice: 0.25%-"+19+"s Seen: %d times","",milkMap.get(3.23)));
+        sb.append(String.format("\nPrice: 3.23%-"+19+"s Seen: %d times","",milkMap.get(3.23)));
         sb.append(String.format("\n---------------- %-"+10+"s ----------------", ""));
-        sb.append(String.format("\nPrice: 0.23%-"+19+"s Seen: %d times","",milkMap.get(1.23)));
+        sb.append(String.format("\nPrice: 1.23%-"+19+"s Seen: %d times","",milkMap.get(1.23)));
         sb.append("\n\n");
         //BREAD
         sb.append(String.format("\nName: Bread%-"+19+"s Seen: %d times","",main.findBreadSeen(fullText)));
         sb.append(String.format("\n=============== %-"+11+"s ================", ""));
-        sb.append(String.format("\nPrice: 0.25%-"+19+"s Seen: %d times","",breadMap.get(1.23)));
+        sb.append(String.format("\nPrice: 1.23%-"+19+"s Seen: %d times","",breadMap.get(1.23)));
         sb.append(String.format("\n---------------- %-"+10+"s ----------------", ""));
         sb.append("\n");
         //ERRORS
