@@ -42,7 +42,7 @@ public class Main {
     }
 
     private static void addCategory(StringBuilder sb, String name, int seenCount, Map<Double, Integer> priceMap, double[] prices) {
-        sb.append(String.format("\nName: %s%-"+18+"s Seen: %d times", name, "", seenCount));
+        sb.append(String.format("\nName: %7s%-"+18+"s Seen: %d times", name, "", seenCount));
         sb.append(String.format("\n=============== %-"+11+"s ================", ""));
         for (double price : prices) {
             sb.append(String.format("\nPrice: %.2f%-"+19+"s Seen: %d times", price, "", priceMap.getOrDefault(price, 0)));
